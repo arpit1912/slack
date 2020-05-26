@@ -11,9 +11,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     })
   })
 
-  socket.on('transmit message', (data, event) => {
-    event.preventDefault()
-    const di = document.createElement('li')
+  socket.on('transmit_message', (data, event) => {
+    const di = document.createElement('div')
     di.innerHTML = `${data.message}`
     console.log('data.message')
     document.querySelector('#messages').append(di)

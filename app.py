@@ -34,19 +34,20 @@ def chatroom(username):
 	chat_users = channels[channel_name]
 
 	if request.method =="POST":
+		print("post first")
 		channel_name = request.form.get('channel_name')
 		print(channel_name)
 		chat_users.append(username)
 		channels[channel_name] = chat_users
 		return render_template('chatroom.html',chatter = chat_users, channel_name = channel_name,username = username)
-
 	else:
+		print("get first")
 		return render_template('chatroom.html',chatter = chat_users, channel_name = channel_name,username = "hello artpiy")
 
 @socketio.on('submit message')
 def mess(data):
 	print(data['message'],"inside the socketio")
 	message = data['message']
-	emit('transmit message',{'message':message},broadcast=True)
+	emit('transmit_message',{'message':message},broadcast=True)
 
 app.run(debug = True)
