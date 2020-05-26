@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Create Channel</title>
+</head>
+<body>
+	<h1> create a channel here {{user}}!</h1>
+
+	{% for channel in channels %}
+	<ul>
+			<li> {{channel}}</li>
+		</ul>
+			{% endfor%}
+
+	<form action="{{url_for('chatroom',username = user)}}" method="post">
+		<input type="text" name="channel_name" placeholder="Channel Name">
+		<button>Submit</button>
+	</form>
+</body>
+</html>

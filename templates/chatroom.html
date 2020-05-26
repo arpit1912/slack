@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+        <script src="{{ url_for('static', filename='index.js') }}"></script>
+	<title>chatroom</title>
+</head>
+<body>
+	hello, {{username}} welcome to {{channel_name}}
+
+	{% for user in chatter %}
+		<ul>
+			<li>
+				{{user}}
+			</li>
+		</ul>
+	{% endfor%}
+	<ul id="messages"></ul>
+	<form>
+		<input id="message" type="text" name="message" placeholder="type here..">
+		<button> Send</button>
+	</form>
+
+
+ </body>
+	
+</html>
